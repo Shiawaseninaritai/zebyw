@@ -1,8 +1,8 @@
 import { User } from '../domain/user.entity';
-import { RouteRepositoryInterface } from '../domain/user.repository';
+import { UserRepositoryInterface } from '../domain/user.repository';
 
-class CreateRouteUseCase {
-  constructor(private routeRepo: RouteRepositoryInterface) {}
+export class CreateUserUseCase {
+  constructor(private routeRepo: UserRepositoryInterface) {}
 
   async execute(input: CreateRouteInput): Promise<CreateRouteOutput> {
     const user = new User(input);

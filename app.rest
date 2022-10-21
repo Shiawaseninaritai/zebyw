@@ -1,0 +1,12 @@
+POST http://localhost:3000/user
+Content-Type: application/json
+
+
+{
+  "age": 12,
+  "categories": ["jogos", "happy", "animais"],
+  "email": "email@gmail.com",
+  "name": "test",
+  "password": "81237489123jasdhfajksf"
+}
+

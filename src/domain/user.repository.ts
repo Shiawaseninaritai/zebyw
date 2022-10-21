@@ -1,5 +1,5 @@
 import { User } from './user.entity';
 
-export interface RouteRepositoryInterface {
+export interface UserRepositoryInterface {
   insert(user: User): Promise<void>;
 }
