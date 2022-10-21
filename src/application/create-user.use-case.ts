@@ -4,15 +4,14 @@ import { UserRepositoryInterface } from '../domain/user.repository';
 export class CreateUserUseCase {
   constructor(private routeRepo: UserRepositoryInterface) {}
 
-  async execute(input: CreateRouteInput): Promise<CreateRouteOutput> {
+  async execute(input: CreateUserInput): Promise<CreateUserOutput> {
     const user = new User(input);
     await this.routeRepo.insert(user);
     return user.toJSON();
   }
 }
 
-type CreateRouteInput = {
-  id?: string;
+type CreateUserInput = {
   name: string;
   age: number;
   email: string;
@@ -20,8 +19,8 @@ type CreateRouteInput = {
   categories: string[];
 };
 
-type CreateRouteOutput = {
-  id?: string;
+type CreateUserOutput = {
+  id: string;
   name: string;
   age: number;
   email: string;

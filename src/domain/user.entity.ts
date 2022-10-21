@@ -1,7 +1,7 @@
+import crypto from 'crypto';
 import { expression } from '../utils/RegexEmail';
 
 export type UserProps = {
-  id?: string;
   name: string;
   age: number;
   email: string;
@@ -10,12 +10,11 @@ export type UserProps = {
 };
 
 export class User {
+  public readonly id: string;
   public props: Required<UserProps>;
-  constructor(props: UserProps) {
-    this.props = {
-      ...props,
-      id: props.id || ''
-    };
+  constructor(props: UserProps, id?: string) {
+    this.id = id || crypto.randomUUID();
+    this.props = props;
   }
 
   updateName(value: string) {
@@ -60,6 +59,9 @@ export class User {
   }
 
   toJSON() {
-    return this.props;
+    return {
+      id: this.id,
+      ...this.props
+    };
   }
 }

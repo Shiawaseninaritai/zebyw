@@ -12,13 +12,12 @@ describe('User Tests', () => {
     };
     let user = new User(userProps);
     expect(user.props).toStrictEqual({
-      ...userProps,
-      id: ''
+      ...userProps
     });
+    expect(user.id).toBeDefined();
     expect(user.props.email).toStrictEqual(email);
 
     userProps = {
-      id: '1',
       age: 19,
       categories: ['happy', 'animais'],
       email,
@@ -29,7 +28,6 @@ describe('User Tests', () => {
     expect(user.props).toStrictEqual({
       ...userProps
     });
-    expect(user.props.id).toEqual('1');
   });
 
   test('method updateName', () => {
