@@ -1,4 +1,4 @@
-import { expression } from './utils/RegexEmail';
+import { expression } from '../utils/RegexEmail';
 
 export type UserProps = {
   id?: string;
@@ -57,5 +57,9 @@ export class User {
 
   get password(): string {
     return this.props.password;
+  }
+
+  toJSON() {
+    return this.props;
   }
 }
