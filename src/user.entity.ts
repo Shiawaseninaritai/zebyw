@@ -1,3 +1,5 @@
+import { expression } from './utils/RegexEmail';
+
 export type UserProps = {
   id?: string;
   name: string;
@@ -14,6 +16,23 @@ export class User {
       ...props,
       id: props.id || ''
     };
+  }
+
+  updateName(value: string) {
+    this.name = value;
+  }
+
+  updateEmail(value: string): boolean {
+    const result: boolean = expression.test(value);
+    if (result) {
+      this.email = value;
+      return true;
+    }
+    return false;
+  }
+
+  updatePassword(value: string) {
+    this.password = value;
   }
 
   private set name(value: string) {
